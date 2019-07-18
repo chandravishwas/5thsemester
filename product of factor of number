@@ -1,0 +1,37 @@
+// Java program to calculate product 
+// of factors of number 
+class GFG  
+{ 
+public static final long M = 1000000007; 
+  
+    // function to product the factors 
+    static long multiplyFactors(int n) 
+    { 
+        long prod = 1; 
+        for (int i = 1; i * i <= n; i++)  
+        { 
+            if (n % i == 0) 
+            { 
+  
+                // If factors are equal, 
+                // multiply only once 
+                if (n / i == i) 
+                    prod = (prod * i) % M; 
+  
+                // Otherwise multiply both 
+                else { 
+                    prod = (prod * i) % M; 
+                    prod = (prod * n / i) % M; 
+                } 
+            } 
+        } 
+        return prod; 
+    } 
+  
+    // Driver Code 
+    public static void main(String[] args) 
+    { 
+        int n = 12; 
+        System.out.println(multiplyFactors(n)); 
+    } 
+} 
